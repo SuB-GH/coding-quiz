@@ -1,0 +1,30 @@
+. {
+    margin: 0%;
+}
+
+
+section {
+
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-bottom: 2px;
+    background: rgb(135, 178, 190);
+    padding: 25px;
+}
+
+h1 {
+
+    display: block;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(8, 48, 78);
+}
+
+button {
+    border-radius: 15%;
+    
+
+}
+
+
+
