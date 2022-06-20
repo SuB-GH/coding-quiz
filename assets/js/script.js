@@ -22,21 +22,58 @@ THEN I can save my initials and score
 
 var timerEl = document.getElementById('countdown');
 var buttonEl = document.querySelector("#take-quiz");
+var questionContainerElement = document.getElementById('question-container')
+var randomizedQuestions, currentQuestionIndex
+
+
+/*
+buttonEl.addEventListener('click', startGame)
+
+function startGame() {
+    console.log('Started')
+}
+*/
+
 var question = {
-    text: "test question", 
+    text: "test question",
     answers: ["answer1", "answer2", "answer3", "answer4"],
     correct: 0
 }
 
 buttonEl.addEventListener("click", function () {
     // to-do: add question #1
-    
     countdown();
- 
+   
 })
 
+buttonEl.addEventListener("click", startGame) 
 
-//console.log(buttonEl);
+function startGame() {
+console.log('started')
+randomizedQuestions = questions.sort(() => Math.random() - .5)
+currentQuestionIndex = 0
+questionContainerElement.classList.remove('hide')
+nextQuestion()
+   
+}
+
+function nextQuestion() {
+    showQuestion(randomizedQuestions[currentQuestionIndex])
+
+}
+
+var questions = [
+    {
+        question: "What is 1+3",
+        answers: [
+            { text: '4', correct: true },
+            { text: '44', correct: false }
+
+        ]
+    }
+]
+
+console.log(questions);
 
 function countdown() {
 
@@ -49,8 +86,28 @@ function countdown() {
         }
 
     }, 1000);
-
 }
+//adding a function called quizStart to initiate when button clicked
+function quizStart() {
+    var question = {
+        text: "test question",
+        answers: ["answer1", "answer2", "answer3", "answer4"],
+        correct: 0
+    }
+    
+}
+
+/* add a start quiz function to run when button is clicked
+function quizStart() {}
+*/
+
+buttonEl.addEventListener("click", function () {
+
+    let quizQuestions = document.querySelector("section");
+    quizQuestions.innerText = "get question 1 in here somehow";
+
+})
+
 // button click initiates timer -and- pop-up question ()
 
 

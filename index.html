@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    
+
     <title>Coding Quiz Challenge</title>
     <link rel="stylesheet" href=" ./assets/css/style.css">
-    
+
 
 </head>
 
@@ -14,16 +14,16 @@
 
     <header>
         <div class="container">
-        <h2 id="countdown">countdown clock</h2>
+            <h2 id="countdown">countdown clock</h2>
         </div>
 
         <div class="score">Your Score</div>
-        
+
     </header>
 
     <section>
 
-    <h1 class="page-title">Javascript Fundamentals Quiz</h1>
+        <h1 class="page-title">Javascript Fundamentals Quiz</h1>
         <p>Try to answer the following JavaScript coding questions within the time limit.
             Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
         <div>
@@ -31,7 +31,26 @@
         </div>
 
     </section>
-    
+
+
+
+    <div class="container">
+        <div id="question-container" class="hide"></div>
+        <div id="question">Question</div>
+        <div id="answer-buttons" class="btn-grid">
+            <button class="btn" id="ans1">answer1</button>
+            <button class="btn" id="ans2">answer2</button>
+            <button class="btn" id="ans3">answer3</button>
+            <button class="btn" id="ans4">answer4</button>
+
+        </div>
+
+        
+    </div>
+
+
+    </div>
+
     <script src="./assets/js/script.js"></script>
 </body>
 
