@@ -1,3 +1,4 @@
+
 /* 
 User Story
 AS A coding boot camp student
@@ -20,60 +21,99 @@ WHEN the game is over
 THEN I can save my initials and score
 */
 
-var timerEl = document.getElementById('countdown');
-var buttonEl = document.querySelector("#take-quiz");
-var questionContainerElement = document.getElementById('question-container')
+// Declare/assign variables here
+var timerEl = document.getElementById("#countdown");
+var buttonEl = document.querySelector("#start-quiz");
+
+
+
+//var questionContainerElement = document.getElementById('question-container')
 var randomizedQuestions, currentQuestionIndex
 
 
-/*
-buttonEl.addEventListener('click', startGame)
+//let quiz = document.querySelector('#start-quiz');
 
-function startGame() {
-    console.log('Started')
-}
-*/
+//Define the event handler
+
+// function clickHandler(onClick) {
+//     console.log("Button Clicked");
+//     }
+
+//     var btn = document.querySelector('btn');
+// btn.addEventListener('click', clickHandler);
+
+
+
+//buttonEl.addEventListener('click', startQuiz)
+
+// function startQuiz(onClick) {
+
+//     console.log(startQuiz);
+// }
+    //this works!
+    var btn = document.getElementById('start-quiz')
+    {
+        //add an event listener here
+        buttonEl.addEventListener("click", function countdown() {
+
+            var timeLeft = 75;
+        
+            var timeInterval = setInterval(function () {
+                if (timeLeft > 1) {
+                    timerEl = timeLeft + ' seconds remaining';
+                    timeLeft--;
+                }
+        
+            }, 1000);
+        })
+        
+        
+    //console.log(btn);
+    }
+    
+    
+
+// function startQuiz() {
+//     console.log('Started')
+// }
+
+//startQuiz();
+
+buttonEl.addEventListener("click", function () {
+    // to-do: add question #1
+    countdown();
+
+})
+
+// buttonEl.addEventListener("click", function () {
+//     startQuiz();
+// })
+/* Questions and answers list
+var questions = function(){
+    [
+       question: "This is question 1",
+        answers: ["answer1", "answer2", "answer3", "answer4"],
+        correctAnswer: 0 ]
+    };
+    questions();
+
 
 var question = {
     text: "test question",
     answers: ["answer1", "answer2", "answer3", "answer4"],
     correct: 0
 }
+*/
 
-buttonEl.addEventListener("click", function () {
-    // to-do: add question #1
-    countdown();
-   
-})
 
-buttonEl.addEventListener("click", startGame) 
 
-function startGame() {
-console.log('started')
-randomizedQuestions = questions.sort(() => Math.random() - .5)
-currentQuestionIndex = 0
-questionContainerElement.classList.remove('hide')
-nextQuestion()
-   
-}
 
 function nextQuestion() {
     showQuestion(randomizedQuestions[currentQuestionIndex])
 
 }
 
-var questions = [
-    {
-        question: "What is 1+3",
-        answers: [
-            { text: '4', correct: true },
-            { text: '44', correct: false }
-
-        ]
-    }
-]
-
-console.log(questions);
+console.log();
 
 function countdown() {
 
@@ -81,68 +121,12 @@ function countdown() {
 
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
-            timerEl.textContent = timeLeft + ' seconds remaining';
+            timerEl = timeLeft + ' seconds remaining';
             timeLeft--;
         }
 
     }, 1000);
 }
-//adding a function called quizStart to initiate when button clicked
-function quizStart() {
-    var question = {
-        text: "test question",
-        answers: ["answer1", "answer2", "answer3", "answer4"],
-        correct: 0
-    }
-    
-}
-
-/* add a start quiz function to run when button is clicked
-function quizStart() {}
-*/
-
-buttonEl.addEventListener("click", function () {
-
-    let quizQuestions = document.querySelector("section");
-    quizQuestions.innerText = "get question 1 in here somehow";
-
-})
-
-// button click initiates timer -and- pop-up question ()
-
-
-// answering the question correctly initiates another question
-
-/* List of questions:
-
-1) True or false: The DOM is built into the JavaScript language.
-True
-Answer: False
-
-2) What does event.preventDefault() do?
-Answer: It stops the browser from reloading the page upon a form submission.
-It stops the browser from allowing the form submission event to occur.
-
-3) True or false: there is a bug in the following code.
-var taskInfoEl = document.createElement("div");
-taskInfoEl.className = "task-info";
-taskInfoEl.innerHTML = "<h3 class="task-name">" + taskDataObj.name + "</h3><span class="task-type">" +
-taskDataObj.type + "</span>";
-
-Answer: True
-False
-*/
-
-
-// answering the question incorrectly, time is subtracted from the clock
-
-
-
-// when all questions are answered, or timer = 0, the game is over
-
-
-
-// when the game is over, I can save my initials and score  
 
 
 
