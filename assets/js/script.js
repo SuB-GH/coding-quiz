@@ -23,12 +23,13 @@ THEN I can save my initials and score
 
 // Declare/assign variables here
 var timerEl = document.getElementById("#countdown");
-var buttonEl = document.querySelector("#start-quiz");
+var buttonEl = document.getElementbyID("#start-quiz");
+
 
 
 
 //var questionContainerElement = document.getElementById('question-container')
-var randomizedQuestions, currentQuestionIndex
+//var randomizedQuestions, currentQuestionIndex
 
 
 //let quiz = document.querySelector('#start-quiz');
@@ -50,12 +51,16 @@ var randomizedQuestions, currentQuestionIndex
 
 //     console.log(startQuiz);
 // }
-    //this works!
-    var btn = document.getElementById('start-quiz')
-    {
-        //add an event listener here
-        buttonEl.addEventListener("click", function countdown() {
+    //
 
+  //  var buttonEl = document.getElementById()
+        {
+        //add an event listener here
+        buttonEl.addEventListener("click", function() {
+            //start countdown initiated by button click
+            countdown(); 
+            {
+            
             var timeLeft = 75;
         
             var timeInterval = setInterval(function () {
@@ -63,14 +68,30 @@ var randomizedQuestions, currentQuestionIndex
                     timerEl = timeLeft + ' seconds remaining';
                     timeLeft--;
                 }
+               
+            }, 1000);}
+            //start quiz initiated by button click
+            var startQuiz = document.getElementById('.question');
+           
+            {
+                window.alert("Question 1");
+
+            }
+    })
         
-            }, 1000);
-        })
-        
-        
-    //console.log(btn);
     }
     
+    // countdown();
+    startQuiz();
+
+    
+    // function startQuiz() {
+    //     console.log(startQuiz);
+
+    // }
+
+        
+    //console.log(btn);
     
 
 // function startQuiz() {
@@ -79,11 +100,11 @@ var randomizedQuestions, currentQuestionIndex
 
 //startQuiz();
 
-buttonEl.addEventListener("click", function () {
-    // to-do: add question #1
-    countdown();
+// buttonEl.addEventListener("click", function () {
+//     // to-do: add question #1
+//     countdown();
 
-})
+// })
 
 // buttonEl.addEventListener("click", function () {
 //     startQuiz();
@@ -108,10 +129,10 @@ var question = {
 
 
 
-function nextQuestion() {
-    showQuestion(randomizedQuestions[currentQuestionIndex])
+// function nextQuestion() {
+//     showQuestion(randomizedQuestions[currentQuestionIndex])
 
-}
+// }
 
 console.log();
 
