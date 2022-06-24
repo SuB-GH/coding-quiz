@@ -22,10 +22,9 @@ THEN I can save my initials and score
 */
 
 // Declare/assign variables here
-var timerEl = document.getElementById("#countdown");
-var buttonEl = document.getElementbyID("#start-quiz");
-
-
+var timerEl = document.getElementById("countdown");
+var buttonEl = document.getElementById("start-quiz");
+var mainEl = document.getElementById("main-text");
 
 
 //var questionContainerElement = document.getElementById('question-container')
@@ -43,7 +42,7 @@ var buttonEl = document.getElementbyID("#start-quiz");
 //     var btn = document.querySelector('btn');
 // btn.addEventListener('click', clickHandler);
 
-
+//add clear interval button
 
 //buttonEl.addEventListener('click', startQuiz)
 
@@ -51,48 +50,73 @@ var buttonEl = document.getElementbyID("#start-quiz");
 
 //     console.log(startQuiz);
 // }
-    //
+//
 
-  //  var buttonEl = document.getElementById()
-        {
-        //add an event listener here
-        buttonEl.addEventListener("click", function() {
-            //start countdown initiated by button click
-            countdown(); 
-            {
-            
-            var timeLeft = 75;
-        
-            var timeInterval = setInterval(function () {
-                if (timeLeft > 1) {
-                    timerEl = timeLeft + ' seconds remaining';
-                    timeLeft--;
-                }
-               
-            }, 1000);}
-            //start quiz initiated by button click
-            var startQuiz = document.getElementById('.question');
-           
-            {
-                window.alert("Question 1");
+//  var buttonEl = document.getElementById()
 
-            }
-    })
-        
-    }
-    
-    // countdown();
+
+
+
+//add an event listener here
+buttonEl.addEventListener("click", function () {
     startQuiz();
 
+    countdown();
     
-    // function startQuiz() {
-    //     console.log(startQuiz);
+})
 
-    // }
+function startQuiz() {
+    mainEl.value("test");
+    console.log("quizStart");
+}
 
-        
-    //console.log(btn);
-    
+function countdown() {
+
+    console.log("countdown");
+}
+
+//start quiz initiated by button click
+
+// function countdown() {
+
+//     var timeLeft = 75;
+
+//     var timeInterval = setInterval(function () {
+//         if (timeLeft > 1) {
+//             timerEl = timeLeft + ' seconds remaining';
+//             timeLeft--;
+//         }
+
+//     }, 1000);
+// }
+
+
+var timeLeft = 75;
+
+var timeInterval = setInterval(function () {
+    if (timeLeft > 1) {
+        timerEl = timeLeft + ' seconds remaining';
+        timeLeft--;
+    }
+
+}, 1000);
+
+
+
+
+
+// countdown();
+
+
+
+// function startQuiz() {
+//     console.log(startQuiz);
+
+// }
+
+
+//console.log(btn);
+
 
 // function startQuiz() {
 //     console.log('Started')
@@ -106,25 +130,25 @@ var buttonEl = document.getElementbyID("#start-quiz");
 
 // })
 
-// buttonEl.addEventListener("click", function () {
-//     startQuiz();
-// })
-/* Questions and answers list
-var questions = function(){
-    [
-       question: "This is question 1",
-        answers: ["answer1", "answer2", "answer3", "answer4"],
-        correctAnswer: 0 ]
-    };
-    questions();
 
-
-var question = {
-    text: "test question",
+var question1 = {
+    text: "test question 1",
     answers: ["answer1", "answer2", "answer3", "answer4"],
     correct: 0
 }
-*/
+
+var question2 = {
+    text: "test question 2",
+    answers: ["answer1", "answer2", "answer3", "answer4"],
+    correct: 0
+}
+
+var question3 = {
+    text: "test question 3",
+    answers: ["answer1", "answer2", "answer3", "answer4"],
+    correct: 0
+}
+
 
 
 
@@ -136,18 +160,6 @@ var question = {
 
 console.log();
 
-function countdown() {
-
-    var timeLeft = 75;
-
-    var timeInterval = setInterval(function () {
-        if (timeLeft > 1) {
-            timerEl = timeLeft + ' seconds remaining';
-            timeLeft--;
-        }
-
-    }, 1000);
-}
 
 
 
