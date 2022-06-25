@@ -22,90 +22,91 @@ THEN I can save my initials and score
 */
 
 // Declare/assign variables here
-var timerEl = document.getElementById("countdown");
+var timerEl = document.getElementById("clock");
 var buttonEl = document.getElementById("start-quiz");
 var mainEl = document.getElementById("main-text");
 
 
-//var questionContainerElement = document.getElementById('question-container')
-//var randomizedQuestions, currentQuestionIndex
-
-
-//let quiz = document.querySelector('#start-quiz');
-
-//Define the event handler
-
-// function clickHandler(onClick) {
-//     console.log("Button Clicked");
-//     }
-
-//     var btn = document.querySelector('btn');
-// btn.addEventListener('click', clickHandler);
-
-//add clear interval button
-
-//buttonEl.addEventListener('click', startQuiz)
-
-// function startQuiz(onClick) {
-
-//     console.log(startQuiz);
-// }
-//
-
-//  var buttonEl = document.getElementById()
-
-
-
-
 //add an event listener here
-buttonEl.addEventListener("click", function () {
-    startQuiz();
+//buttonEl.addEventListener('click', startQuiz);
+buttonEl.addEventListener("click", function() { 
+    alert("question 1"); 
+});
+ 
+    // startQuiz();
+    // countdown();
 
-    countdown();
-    
-})
+
+// function startQuiz() {
+//     //main-text.value("test");
+//     //console.log(Object.values(question1));
+//     console.log("quizStart");
+// }
+
+
+//this function works!
+function startFunction() {
+var x = document.getElementById("testDIV");
+if (x.style.display === "none") {
+    x.style.display = "block";
+} else {
+x.style.display = "none";
+}
 
 function startQuiz() {
-    mainEl.value("test");
-    console.log("quizStart");
+    console.log("is this working?");
 }
 
-function countdown() {
+function countdown() 
+{
+    var timeLeft = 75;
 
-    console.log("countdown");
+    var timeInterval = setInterval(function () {
+        if (timeLeft > 1) {
+            timerEl = timeLeft + ' seconds remaining';
+            timeLeft--;
+        }
+
+    }, 1000);
+    
+
+
 }
+//function to replace text upon button click
+// function myFunction() {
+//     var y = document.getElementById("myDIV");
+//     if (y.innerHTML === TestDIV) {
+//         y.innerHTML = "Swapped text!";
+//     } else {
+//         y.innerHTML = question1;
+//     }
+//     }
+// }
+
+
 
 //start quiz initiated by button click
 
-// function countdown() {
-
-//     var timeLeft = 75;
-
-//     var timeInterval = setInterval(function () {
-//         if (timeLeft > 1) {
-//             timerEl = timeLeft + ' seconds remaining';
-//             timeLeft--;
-//         }
-
-//     }, 1000);
-// }
-
-
-var timeLeft = 75;
-
-var timeInterval = setInterval(function () {
-    if (timeLeft > 1) {
-        timerEl = timeLeft + ' seconds remaining';
-        timeLeft--;
-    }
-
-}, 1000);
 
 
 
 
 
-// countdown();
+// var timeLeft = 75;
+
+// var timeInterval = setInterval(function () {
+//     if (timeLeft > 1) {
+//         timerEl = timeLeft + ' seconds remaining';
+//         timeLeft--;
+//     }
+
+// }, 1000);
+
+
+
+
+
+
 
 
 
@@ -158,8 +159,36 @@ var question3 = {
 
 // }
 
-console.log();
 
 
 
+//var questionContainerElement = document.getElementById('question-container')
+//var randomizedQuestions, currentQuestionIndex
 
+
+//let quiz = document.querySelector('#start-quiz');
+
+//Define the event handler
+
+// function clickHandler(onClick) {
+//     console.log("Button Clicked");
+//     }
+
+//     var btn = document.querySelector('btn');
+// btn.addEventListener('click', clickHandler);
+
+//add clear interval button
+
+//buttonEl.addEventListener('click', startQuiz)
+
+// function startQuiz(onClick) {
+
+//     console.log(startQuiz);
+// }
+//
+
+//  var buttonEl = document.getElementById()
+
+startQuiz();
+//countdown();
+}
