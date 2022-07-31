@@ -21,135 +21,146 @@ WHEN the game is over
 THEN I can save my initials and score
 */
 
+
+
 // Declare/assign variables here
 var timerEl = document.getElementById("clock");
 var buttonEl = document.getElementById("start-quiz");
 var mainEl = document.getElementById("main-text");
 
 
+buttonEl.addEventListener("click", startQuiz);
+buttonEl.addEventListener("click", countdown);
+
 //add an event listener here
-//buttonEl.addEventListener('click', startQuiz);
-buttonEl.addEventListener("click", function() { 
-    alert("question 1"); 
-});
- 
-    // startQuiz();
-    // countdown();
-
-
-// function startQuiz() {
-//     //main-text.value("test");
-//     //console.log(Object.values(question1));
-//     console.log("quizStart");
-// }
 
 
 //this function works!
 function startFunction() {
-var x = document.getElementById("testDIV");
-if (x.style.display === "none") {
-    x.style.display = "block";
-} else {
-x.style.display = "none";
-}
+    // var x = document.getElementById("testDIV");
+    // if (x.style.display === "none") {
+    //     x.style.display = "block";
+    // } else {
+    //     x.style.display = "none";
 
-function startQuiz() {
-    console.log("is this working?");
-}
+    // }
 
-function countdown() 
-{
-    var timeLeft = 75;
+    function startFunction() {
+        var x = document.getElementById("testDIV");
+        if (x.innerHTML === "Hello") {
+            x.innerHTML = "Swapped text!";
+        } else {
+            x.innerHTML = "Hello";
+        }
+    }
 
-    var timeInterval = setInterval(function () {
-        if (timeLeft > 1) {
-            timerEl = timeLeft + ' seconds remaining';
-            timeLeft--;
+    function startQuiz() {
+        document.getElementById("main-text").innerHTML = "I am new text";
+
+    }
+
+    {
+        function countdown() {
+            console.log("is this also working?");
+            var timeLeft = 75;
+            var timeInterval = setInterval(function () {
+                if (timeLeft > 1) {
+                    timerEl = timeLeft + ' seconds remaining';
+                    timeLeft--;
+                }
+
+            }, 1000);
+
         }
 
-    }, 1000);
-    
+    }
+    startQuiz();
+    countdown();
+
+
+
+
+
+    //function to replace text upon button click
+    // function myFunction() {
+    //     var y = document.getElementById("myDIV");
+    //     if (y.innerHTML === TestDIV) {
+    //         y.innerHTML = "Swapped text!";
+    //     } else {
+    //         y.innerHTML = question1;
+    //     }
+    //     }
+    // }
+
+
+
+    //start quiz initiated by button click
+
+
+
+
+
+
+    // var timeLeft = 75;
+
+    // var timeInterval = setInterval(function () {
+    //     if (timeLeft > 1) {
+    //         timerEl = timeLeft + ' seconds remaining';
+    //         timeLeft--;
+    //     }
+
+    // }, 1000);
+
+
+
+
+
+
+
+
+
+    // function startQuiz() {
+    //     console.log(startQuiz);
+
+    // }
+
+
+    //console.log(btn);
+
+
+    // function startQuiz() {
+    //     console.log('Started')
+    // }
+
+    //startQuiz();
+
+    // buttonEl.addEventListener("click", function () {
+    //     // to-do: add question #1
+    //     countdown();
+
+    // })
+
+
+    var question1 = {
+        text: "test question 1",
+        answers: ["answer1", "answer2", "answer3", "answer4"],
+        correct: 0
+    }
+
+    var question2 = {
+        text: "test question 2",
+        answers: ["answer1", "answer2", "answer3", "answer4"],
+        correct: 0
+    }
+
+    var question3 = {
+        text: "test question 3",
+        answers: ["answer1", "answer2", "answer3", "answer4"],
+        correct: 0
+    }
 
 
 }
-//function to replace text upon button click
-// function myFunction() {
-//     var y = document.getElementById("myDIV");
-//     if (y.innerHTML === TestDIV) {
-//         y.innerHTML = "Swapped text!";
-//     } else {
-//         y.innerHTML = question1;
-//     }
-//     }
-// }
-
-
-
-//start quiz initiated by button click
-
-
-
-
-
-
-// var timeLeft = 75;
-
-// var timeInterval = setInterval(function () {
-//     if (timeLeft > 1) {
-//         timerEl = timeLeft + ' seconds remaining';
-//         timeLeft--;
-//     }
-
-// }, 1000);
-
-
-
-
-
-
-
-
-
-// function startQuiz() {
-//     console.log(startQuiz);
-
-// }
-
-
-//console.log(btn);
-
-
-// function startQuiz() {
-//     console.log('Started')
-// }
-
-//startQuiz();
-
-// buttonEl.addEventListener("click", function () {
-//     // to-do: add question #1
-//     countdown();
-
-// })
-
-
-var question1 = {
-    text: "test question 1",
-    answers: ["answer1", "answer2", "answer3", "answer4"],
-    correct: 0
-}
-
-var question2 = {
-    text: "test question 2",
-    answers: ["answer1", "answer2", "answer3", "answer4"],
-    correct: 0
-}
-
-var question3 = {
-    text: "test question 3",
-    answers: ["answer1", "answer2", "answer3", "answer4"],
-    correct: 0
-}
-
 
 
 
@@ -189,6 +200,19 @@ var question3 = {
 
 //  var buttonEl = document.getElementById()
 
-startQuiz();
-//countdown();
-}
+
+    // startQuiz();
+    // countdown();
+
+
+// function startQuiz() {
+//     //main-text.value("test");
+//     //console.log(Object.values(question1));
+//     console.log("quizStart");
+// }
+
+
+
+
+
+
