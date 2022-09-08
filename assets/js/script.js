@@ -1,74 +1,162 @@
-
-/* 
-User Story
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
- */
-
-/*
-Acceptance Criteria
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-*/
-
 // Declare/assign variables here
+var origText = document.getElementById("main-text");
+var choicesDiv = document.getElementById("choices")
 var timerEl = document.getElementById("clock");
 var buttonEl = document.getElementById("start-quiz");
 var mainEl = document.getElementById("main-text");
+var timeLeft = 75;
 
+questionArray = [
+    {
+        question: "Why do we use JavaScript?",
+        choices: ["to create the layout of a webpage", "to store data", "to make webpages interactive", "to buy things online"],
+        correctAns: "to make webpages interactive"
+    },
 
-//this function works!
+    {
+        question: "How are strings defined in JavaScript",
+        choices: ["with a semicolon", "with quotes", "they are capitalized", "with parentheses"],
+        correctAns: "with quotes"
+    },
 
-// var x = document.getElementById("testDIV");
-// if (x.style.display === "none") {
-//     x.style.display = "block";
-// } else {
-//     x.style.display = "none";
+    {
+        question: "test question 3",
+        choices: ["answer1", "answer2", "answer3", "answer4"],
+        correctAns: "answer1"
+    },
+    {
+        question: "test question 4",
+        choices: ["answer1", "answer2", "answer3", "answer4"],
+        correctAns: "answer1"
+    },
 
-// }
+    {
+        question: "test question 5",
+        choices: ["answer1", "answer2", "answer3", "answer4"],
+        correctAns: "answer2"
+    },
+
+    {
+        question: "test question 6",
+        choices: ["answer1", "answer2", "answer3", "answer4"],
+        correctAns: "answer4"
+    }
+]
+let index = 0;
+let yourScore = 0;
+
+const checkAnswer = function (event) {
+    let correctAns = questionArray[index].correctAns
+    let choiceVal = this.innerText;
+    console.log(choiceVal); // "choiceVal" is the answer that was chosen
+
+    if (choiceVal == correctAns) {
+        console.log(true)
+
+    } else {
+        console.log(false)
+        //window.alert("Wrong Answer, Try Again");
+        window.alert("Wrong Answer")
+        timeLeft = timeLeft - 10;
+        //document.write("Wrong Answer");
+        // return timeLeft;           
+    }
+
+    //if not at end of array length
+    index++;
+    startQuiz()
+    //else: end quiz
+
+}
+
+questionList++;
+var questionList = 1;
+
 
 const startQuiz = function () {
-    let origText = document.getElementById("main-text").innerHTML;
-    let question = origText.replace("Question 1");
-    document.getElementById("main-text").innerHTML = question;
+
+    // if there are no more questions, end quiz
+    if (!questionArray[index]) {
+        endQuiz();
+        return;  // stops the rest of the function below        
+    }
+
+
+    let question = questionArray[index].question;
+    let choices = questionArray[index].choices;
+
+
+
+    choicesDiv.innerText = ""
+
+    origText.innerHTML = question; // this hides the "main text and brings up the first question"
+    buttonEl.style.display = "none";
+
+    // loop through question array
+    for (var i = 0; i < choices.length; i++) {
+        // pass each question into the `createQuestionEl()` function
+        //startQuiz(question[i]);
+        let btn = document.createElement("button");
+        btn.innerText = choices[i];
+        choicesDiv.appendChild(btn);
+
+        btn.onclick = checkAnswer;
+    }
+}
+// Save user's initials and score to local storage
+function saveItem() {
+    var savedList = getScore();
+    savedList.push();
+    localStorage.setItem("SavedScore", JSON.stringify(savedList));
+};
+
+function saveScore() {
+    var scoreItem = {
+        userInitials: userInit.value,
+        score: yourScore
+    }
+    saveItem(scoreItem);
+    renderScore();
 }
 
 const countdown = function () {
-    console.log("is this also working?");
-    var timeLeft = 75;
+    timeLeft = 75;
 
-    var timeInterval = setInterval(1000) 
-    {
-        if (timeLeft > 1) {
-            timerEl = timeLeft + ' seconds remaining';
+    timeInterval = setInterval(function () {
+        if (timeLeft > 0) {
+            timerEl.textContent = timeLeft + ' seconds remaining';
             timeLeft--;
-            if (timeLeft < 0) {
-                clearInterval;
-            }
         }
+        else {
+            clearInterval(timeInterval);
+            console.log("quiz over!");
+            endQuiz();
+            //yourScore.textContent = Your Score is : " + "
+        }
+        // else if (questionList >= questionArray.length + 1) {
+        //     clearInterval(timeInterval);
+        //     endQuiz();
+
+        // }
 
     }, 1000);
 
-    
-    countdown();
 }
-startQuiz();
-countdown();
 
-buttonEl.addEventListener("click", startQuiz);
-buttonEl.addEventListener("click", countdown);
+buttonEl.addEventListener("click", function () {
+    //startQuiz();
+    countdown();
+})
 
-
+function endQuiz() {
+    console.log("end quiz!");
+    clearInterval(timeInterval);
+    origText.innerHTML = "quiz over"; 
+    //choicesDiv.innerText = "show score here"
+    choicesDiv.innerText = "your score is " + timeLeft;
+    timerEl.textContent = timeLeft + ' seconds remaining'; // this updates the timer
+    
+}
 
 //function to replace text upon button click
 // function myFunction() {
@@ -80,26 +168,6 @@ buttonEl.addEventListener("click", countdown);
 //     }
 //     }
 // }
-
-
-
-
-// var timeLeft = 75;
-
-// var timeInterval = setInterval(function () {
-//     if (timeLeft > 1) {
-//         timerEl = timeLeft + ' seconds remaining';
-//         timeLeft--;
-//     }
-
-// }, 1000);
-
-
-
-
-
-
-
 
 
 // function startQuiz() {
@@ -124,23 +192,7 @@ buttonEl.addEventListener("click", countdown);
 // })
 
 
-var question1 = {
-    text: "test question 1",
-    answers: ["answer1", "answer2", "answer3", "answer4"],
-    correct: 0
-}
 
-var question2 = {
-    text: "test question 2",
-    answers: ["answer1", "answer2", "answer3", "answer4"],
-    correct: 0
-}
-
-var question3 = {
-    text: "test question 3",
-    answers: ["answer1", "answer2", "answer3", "answer4"],
-    correct: 0
-}
 
 
 

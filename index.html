@@ -12,11 +12,11 @@
 <body>
 
     <header>
-        <div class="container">
+        <div class="container" id="wrongAnswer">
             <h2 id="clock">countdown clock</h2>
         </div>
-
-        <div class="score">Your Score</div>
+        
+        <div class="yourScore">Your Score</div>
 
     </header>
 
@@ -27,6 +27,8 @@
             <!-- remove this div if not needed -->
             <p id="main-text">Try to answer the following JavaScript coding questions within the time limit.
                 Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+
+                <div id="choices"></div>
 
             <div>
                 <button class="btn" id="start-quiz" onClick="startQuiz()">Start Quiz</button>
