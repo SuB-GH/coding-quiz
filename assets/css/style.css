@@ -4,57 +4,43 @@
 }
 
 header {
-    
     display: inline-block;
-   
-    
 }
 
 .countdown {
     position: absolute;
     margin-right: 10px;
-        
 }
 
 .score {
-
-    position:absolute;
-    
+    position: absolute;
 }
 
 .container {
-        flex-wrap: wrap;
-        margin: auto;
-        width: 800px;
-        height: 50px;
-        text-align: right;
-        font-weight: 80;
-        font-size: smaller;
-        float: right;
-        
-      }
-
-
+    flex-wrap: wrap;
+    margin: auto;
+    width: 800px;
+    height: 50px;
+    text-align: right;
+    font-weight: 80;
+    font-size: smaller;
+    float: right;
+}
 
 section {
-
     text-align: center;
     border-bottom: 2px;
     background: rgb(135, 178, 190);
     padding: 25px;
-    
-
 }
 
 h1 {
-
     display: block;
     font-size: 20px;
     color: rgb(8, 48, 78);
 }
 
 p {
-
     width: 40%;
     margin: 25px auto 25px auto;
     padding: 10px auto 20px auto;
@@ -64,11 +50,5 @@ button {
     border-radius: 30%;
     background-color: black;
     color: white;
-    
-    
-    
-
 }
-
-
 

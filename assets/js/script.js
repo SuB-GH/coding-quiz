@@ -14,32 +14,32 @@ questionArray = [
     },
 
     {
-        question: "How are strings defined in JavaScript",
+        question: "How are strings defined in JavaScript?",
         choices: ["with a semicolon", "with quotes", "they are capitalized", "with parentheses"],
         correctAns: "with quotes"
     },
 
     {
-        question: "test question 3",
-        choices: ["answer1", "answer2", "answer3", "answer4"],
-        correctAns: "answer1"
+        question: "What is a boolean value?",
+        choices: ["a true or false value", "an object", "a null value", "a sentence"],
+        correctAns: "a true or false value"
     },
     {
-        question: "test question 4",
-        choices: ["answer1", "answer2", "answer3", "answer4"],
-        correctAns: "answer1"
-    },
-
-    {
-        question: "test question 5",
-        choices: ["answer1", "answer2", "answer3", "answer4"],
-        correctAns: "answer2"
+        question: "How do we add JavaScript to an html file?",
+        choices: ["<script></script> tags", "<java></java> tags", "<html></html> tags", "<css></css> tags"],
+        correctAns: "<script></script> tags"
     },
 
     {
-        question: "test question 6",
-        choices: ["answer1", "answer2", "answer3", "answer4"],
-        correctAns: "answer4"
+        question: "Which function will reference the heading in your html file?",
+        choices: ["get.header('h1')", "document.querySelector('h1')", "document.queryHeader", "queryHeader('select')"],
+        correctAns: "document.querySelector('h1')"
+    },
+
+    {
+        question: "What are 'const' and 'let'?",
+        choices: ["types of functions", "types of objects", "types of algorithms", "types of variables"],
+        correctAns: "types of variables"
     }
 ]
 let index = 0;
@@ -47,78 +47,55 @@ let yourScore = 0;
 
 const checkAnswer = function (event) {
     let correctAns = questionArray[index].correctAns
-    let choiceVal = this.innerText;
-    console.log(choiceVal); // "choiceVal" is the answer that was chosen
+    let choiceVal = this.innerText;  // "choiceVal" is the answer that was chosen
 
+    // if the correct answer was chosen
     if (choiceVal == correctAns) {
         console.log(true)
 
+        // if incorrect answer was chosen, alert pops up and 10 seconds removed from timer
     } else {
         console.log(false)
-        //window.alert("Wrong Answer, Try Again");
         window.alert("Wrong Answer")
         timeLeft = timeLeft - 10;
-        //document.write("Wrong Answer");
-        // return timeLeft;           
+
     }
 
-    //if not at end of array length
     index++;
     startQuiz()
-    //else: end quiz
-
 }
 
 questionList++;
 var questionList = 1;
 
-
 const startQuiz = function () {
-
     // if there are no more questions, end quiz
     if (!questionArray[index]) {
         endQuiz();
         return;  // stops the rest of the function below        
     }
 
-
     let question = questionArray[index].question;
     let choices = questionArray[index].choices;
 
-
-
     choicesDiv.innerText = ""
 
-    origText.innerHTML = question; // this hides the "main text and brings up the first question"
+    origText.innerHTML = question; // this hides the main text and brings up the first question
     buttonEl.style.display = "none";
 
     // loop through question array
     for (var i = 0; i < choices.length; i++) {
-        // pass each question into the `createQuestionEl()` function
-        //startQuiz(question[i]);
+
         let btn = document.createElement("button");
+        //btn.style.color = "red";
         btn.innerText = choices[i];
         choicesDiv.appendChild(btn);
 
         btn.onclick = checkAnswer;
     }
 }
-// Save user's initials and score to local storage
-function saveItem() {
-    var savedList = getScore();
-    savedList.push();
-    localStorage.setItem("SavedScore", JSON.stringify(savedList));
-};
 
-function saveScore() {
-    var scoreItem = {
-        userInitials: userInit.value,
-        score: yourScore
-    }
-    saveItem(scoreItem);
-    renderScore();
-}
-
+// function to start the timer
 const countdown = function () {
     timeLeft = 75;
 
@@ -131,118 +108,39 @@ const countdown = function () {
             clearInterval(timeInterval);
             console.log("quiz over!");
             endQuiz();
-            //yourScore.textContent = Your Score is : " + "
-        }
-        // else if (questionList >= questionArray.length + 1) {
-        //     clearInterval(timeInterval);
-        //     endQuiz();
 
-        // }
+        }
 
     }, 1000);
-
 }
 
+//starts the countdown timer upon button click
 buttonEl.addEventListener("click", function () {
-    //startQuiz();
     countdown();
 })
 
 function endQuiz() {
     console.log("end quiz!");
     clearInterval(timeInterval);
-    origText.innerHTML = "quiz over"; 
+    origText.innerHTML = "quiz over";
     //choicesDiv.innerText = "show score here"
     choicesDiv.innerText = "your score is " + timeLeft;
     timerEl.textContent = timeLeft + ' seconds remaining'; // this updates the timer
-    
+    saveScore();
 }
 
-//function to replace text upon button click
-// function myFunction() {
-//     var y = document.getElementById("myDIV");
-//     if (y.innerHTML === TestDIV) {
-//         y.innerHTML = "Swapped text!";
-//     } else {
-//         y.innerHTML = question1;
+var saveScore = function () {
+    localStorage.setItem("yourScore", JSON.stringify(timeLeft));
+}
+
+// function saveScore() {
+//     var scoreItem = {
+//         userInitials: userInit.value,
+//         score: yourScore
 //     }
-//     }
+//     saveItem(scoreItem);
+//     renderScore();
 // }
-
-
-// function startQuiz() {
-//     console.log(startQuiz);
-
-// }
-
-
-//console.log(btn);
-
-
-// function startQuiz() {
-//     console.log('Started')
-// }
-
-//startQuiz();
-
-// buttonEl.addEventListener("click", function () {
-//     // to-do: add question #1
-//     countdown();
-
-// })
-
-
-
-
-
-
-
-
-
-
-// function nextQuestion() {
-//     showQuestion(randomizedQuestions[currentQuestionIndex])
-
-// }
-
-
-
-
-//var questionContainerElement = document.getElementById('question-container')
-//var randomizedQuestions, currentQuestionIndex
-
-
-//let quiz = document.querySelector('#start-quiz');
-
-//Define the event handler
-
-// function clickHandler(onClick) {
-//     console.log("Button Clicked");
-//     }
-
-//     var btn = document.querySelector('btn');
-// btn.addEventListener('click', clickHandler);
-
-//add clear interval button
-
-//buttonEl.addEventListener('click', startQuiz)
-
-// function startQuiz(onClick) {
-
-//     console.log(startQuiz);
-// }
-//
-
-
-
-// function startQuiz() {
-//     //main-text.value("test");
-//     //console.log(Object.values(question1));
-//     console.log("quizStart");
-// }
-
-
-
 
 
 
