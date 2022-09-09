@@ -122,13 +122,25 @@ buttonEl.addEventListener("click", function () {
 function endQuiz() {
     console.log("end quiz!");
     clearInterval(timeInterval);
-    origText.innerHTML = "quiz over";
+
+    let initBtn = document.createElement("button");
+    initBtn.setAttribute("type", "submit"); // this makes the button a "submit" button
+    initBtn.innerHTML = "save initials";
+    document.body.appendChild(initBtn);
+    initBtn.onclick = function(){
+        saveInitials};
+
+    origText.innerHTML = "Quiz Over " + "save your initials here ";
+    //origText.innerHTML = document.querySelector("form-group");
     //choicesDiv.innerText = "show score here"
     choicesDiv.innerText = "your score is " + timeLeft;
+
     timerEl.textContent = timeLeft + ' seconds remaining'; // this updates the timer
     saveScore();
     showScore();
     console.log(showScore);
+
+
 }
 // this saves the score to local storage
 var saveScore = function () {
@@ -137,8 +149,12 @@ var saveScore = function () {
 
 // this retrieves score from local storage
 var showScore = function () {
-    localStorage.getItem("yourScore", JSON.stringify(timeLeft));
-    console.log(showScore);
+    var savedScore = localStorage.getItem("yourScore");
+    //localStorage.getItem("yourScore", JSON.stringify(timeLeft));
+    // if (!savedScore) {
+    //     return false;
+    //   }
+    return savedScore;
 }
 
 
