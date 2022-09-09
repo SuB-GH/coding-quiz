@@ -127,11 +127,21 @@ function endQuiz() {
     choicesDiv.innerText = "your score is " + timeLeft;
     timerEl.textContent = timeLeft + ' seconds remaining'; // this updates the timer
     saveScore();
+    showScore();
+    console.log(showScore);
 }
-
+// this saves the score to local storage
 var saveScore = function () {
     localStorage.setItem("yourScore", JSON.stringify(timeLeft));
 }
+
+// this retrieves score from local storage
+var showScore = function () {
+    localStorage.getItem("yourScore", JSON.stringify(timeLeft));
+    console.log(showScore);
+}
+
+
 
 // function saveScore() {
 //     var scoreItem = {
