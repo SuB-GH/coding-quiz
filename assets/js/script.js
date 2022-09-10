@@ -6,6 +6,8 @@ var buttonEl = document.getElementById("start-quiz");
 var mainEl = document.getElementById("main-text");
 var timeLeft = 75;
 var initBtn = document.getElementById("saveInit")
+var initEl = document.getElementById("inputInit")
+var testSaveInitEl = document.getElementById("testSaveInit")
 
 
 questionArray = [
@@ -121,19 +123,20 @@ buttonEl.addEventListener("click", function () {
     countdown();
 })
 
+//this works
 function saveInitials() {
-    var testInput = document.getElementById("saveInit").value;
-    alert(testInput);
+    var testInput = initEl.value;
+    console.log(testInput); //"testInput" are the initials that are saved
 }
 
 function endQuiz() {
     console.log("end quiz!");
     clearInterval(timeInterval);
 
-    let initBtn = document.createElement("button"); // this creates a button
-    initBtn.setAttribute("type", "submit"); // this makes the button a "submit" button
-    initBtn.innerHTML = "save initials"; // text on button
-    document.body.appendChild(initBtn);
+    // let initBtn = document.createElement("button"); // this creates a button
+    // initBtn.setAttribute("type", "submit"); // this makes the button a "submit" button
+    // initBtn.innerHTML = "save initials"; // text on button
+    // document.body.appendChild(initBtn);
     // initBtn.onclick = function(){
     //     saveInitials};
 
@@ -149,13 +152,12 @@ function endQuiz() {
     //     }
     //   }
 
-    let form = document.createElement("form"); // this creates a button
-    form.setAttribute("method", "post"); // this makes the button a "submit" button
-    form.innerHTML = "save initials"; // text on button
+    let form = document.createElement("form"); // this creates a submit form
+    form.setAttribute("method", "post"); // 
+    form.innerHTML = "save initials"; // this works as a button to save the initials
     // document.body.appendChild(initBtn);
     form.onclick = function () {
         saveInitials();
-
     };
 
     origText.innerHTML = document.querySelector("form-group");
@@ -164,6 +166,10 @@ function endQuiz() {
     //origText.innerHTML = document.querySelector("form-group");
     //choicesDiv.innerText = "show score here"
     choicesDiv.innerText = "your score is " + timeLeft;
+    let testBtn = document.createElement("button");
+    testBtn.innerText = "test button";
+    choicesDiv.appendChild(testBtn);
+
 
     timerEl.textContent = timeLeft + ' seconds remaining'; // this updates the timer
     saveScore();
