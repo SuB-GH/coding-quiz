@@ -10,6 +10,8 @@ var initEl = document.getElementById("inputInit")
 var testSaveInitEl = document.getElementById("testSaveInit")
 
 
+initEl.style.display = "none";
+
 questionArray = [
     {
         question: "Why do we use JavaScript?",
@@ -123,52 +125,52 @@ buttonEl.addEventListener("click", function () {
     countdown();
 })
 
-//this works
+//this is what saves the initials
 function saveInitials() {
     var testInput = initEl.value;
     console.log(testInput); //"testInput" are the initials that are saved
 }
 
+    function showHighScore() 
+    {
+        origText.innerHTML = "High Score " + timeLeft;
+        choicesDiv.innerText = "";
+
+    }
+
 function endQuiz() {
     console.log("end quiz!");
     clearInterval(timeInterval);
 
-    // let initBtn = document.createElement("button"); // this creates a button
-    // initBtn.setAttribute("type", "submit"); // this makes the button a "submit" button
-    // initBtn.innerHTML = "save initials"; // text on button
-    // document.body.appendChild(initBtn);
-    // initBtn.onclick = function(){
-    //     saveInitials};
-
-
-    // function saveInitials() {
-    //     var initBtn = document.getElementById("saveInit");
-    //     initBtn.style.display === "none"
-    //      }
-    // //     {
-    //        // initBtn.style.display = "block";
-    //     } else {
-    //         initBtn.style.display = "none"; 
-    //     }
-    //   }
-
-    let form = document.createElement("form"); // this creates a submit form
+    
+    initEl.style.display = "block"; // this "unhides" the initials input fiel
+    let form = document.createElement("button"); // this creates a submit form
     form.setAttribute("method", "post"); // 
     form.innerHTML = "save initials"; // this works as a button to save the initials
     // document.body.appendChild(initBtn);
     form.onclick = function () {
-        saveInitials();
+        saveInitials()
+        {
+            let abc = document.createElement("button");
+            abc.setAttribute("method", "post");
+            abc.innerHTML = "view high scores"
+            document.body.appendChild(abc);
+            abc.onclick = showHighScore;
+            
+        };
     };
 
-    origText.innerHTML = document.querySelector("form-group");
+
+
+    //origText.innerHTML = document.querySelector("form-group");
     document.body.appendChild(form);
-    //origText.innerHTML = "Quiz Over " + "save your initials here ";
+    origText.innerHTML = "Quiz Over";
     //origText.innerHTML = document.querySelector("form-group");
     //choicesDiv.innerText = "show score here"
-    choicesDiv.innerText = "your score is " + timeLeft;
-    let testBtn = document.createElement("button");
-    testBtn.innerText = "test button";
-    choicesDiv.appendChild(testBtn);
+    choicesDiv.innerText = "your score is: " + timeLeft;
+    // let testBtn = document.createElement("button");
+    // testBtn.innerText = "test button";
+    // choicesDiv.appendChild(testBtn);
 
 
     timerEl.textContent = timeLeft + ' seconds remaining'; // this updates the timer
