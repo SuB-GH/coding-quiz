@@ -9,7 +9,6 @@ var initBtn = document.getElementById("saveInit")
 var initEl = document.getElementById("inputInit")
 var testSaveInitEl = document.getElementById("testSaveInit")
 
-
 initEl.style.display = "none";
 
 questionArray = [
@@ -64,7 +63,6 @@ const checkAnswer = function (event) {
         console.log(false)
         window.alert("Wrong Answer")
         timeLeft = timeLeft - 10;
-
     }
 
     index++;
@@ -93,7 +91,7 @@ const startQuiz = function () {
     for (var i = 0; i < choices.length; i++) {
 
         let btn = document.createElement("button");
-        //btn.style.color = "red";
+
         btn.innerText = choices[i];
         choicesDiv.appendChild(btn);
 
@@ -112,9 +110,7 @@ const countdown = function () {
         }
         else {
             clearInterval(timeInterval);
-            console.log("quiz over!");
             endQuiz();
-
         }
 
     }, 1000);
@@ -131,53 +127,40 @@ function saveInitials() {
     console.log(testInput); //"testInput" are the initials that are saved
 }
 
-    function showHighScore() 
-    {
-        origText.innerHTML = "High Score " + timeLeft;
-        choicesDiv.innerText = "";
-
-    }
+function showHighScore() {
+    testInput = initEl.value;
+    origText.innerHTML = "High Score    " + testInput + ':  ' + timeLeft;
+    choicesDiv.innerText = "";
+}
 
 function endQuiz() {
     console.log("end quiz!");
     clearInterval(timeInterval);
 
-    
-    initEl.style.display = "block"; // this "unhides" the initials input fiel
-    let form = document.createElement("button"); // this creates a submit form
+    initEl.style.display = "block"; // this "unhides" the initials input field
+    let form = document.createElement("button"); // this creates a "save initials" button
     form.setAttribute("method", "post"); // 
     form.innerHTML = "save initials"; // this works as a button to save the initials
-    // document.body.appendChild(initBtn);
+
     form.onclick = function () {
         saveInitials()
         {
-            let abc = document.createElement("button");
-            abc.setAttribute("method", "post");
-            abc.innerHTML = "view high scores"
-            document.body.appendChild(abc);
-            abc.onclick = showHighScore;
-            
+            let highScoreBtn = document.createElement("button");
+            highScoreBtn.setAttribute("method", "post");
+            highScoreBtn.innerHTML = "view high scores"
+            document.body.appendChild(highScoreBtn);
+            highScoreBtn.onclick = showHighScore;
+
         };
     };
 
-
-
-    //origText.innerHTML = document.querySelector("form-group");
     document.body.appendChild(form);
-    origText.innerHTML = "Quiz Over";
-    //origText.innerHTML = document.querySelector("form-group");
-    //choicesDiv.innerText = "show score here"
+    origText.innerHTML = "The quiz has ended";
     choicesDiv.innerText = "your score is: " + timeLeft;
-    // let testBtn = document.createElement("button");
-    // testBtn.innerText = "test button";
-    // choicesDiv.appendChild(testBtn);
-
 
     timerEl.textContent = timeLeft + ' seconds remaining'; // this updates the timer
     saveScore();
     showScore();
-    console.log(showScore);
-
 
 }
 // this saves the score to local storage
@@ -188,23 +171,6 @@ var saveScore = function () {
 // this retrieves score from local storage
 var showScore = function () {
     var savedScore = localStorage.getItem("yourScore");
-    //localStorage.getItem("yourScore", JSON.stringify(timeLeft));
-    // if (!savedScore) {
-    //     return false;
-    //   }
+
     return savedScore;
 }
-
-
-
-// function saveScore() {
-//     var scoreItem = {
-//         userInitials: userInit.value,
-//         score: yourScore
-//     }
-//     saveItem(scoreItem);
-//     renderScore();
-// }
-
-
-

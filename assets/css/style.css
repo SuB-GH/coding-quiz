@@ -16,6 +16,23 @@ header {
     position: absolute;
 }
 
+.choicesDiv {
+    
+    flex-wrap: wrap;
+    font-weight: 20;
+    align-items: flex-end;
+}
+
+.choicesDiv.choices {
+    
+    font-weight: bold;
+    align-items: flex-end;
+}
+.choicesDiv.button {
+    
+    font-weight: 20;
+}
+
 .container {
     flex-wrap: wrap;
     margin: auto;
